@@ -1,5 +1,5 @@
-import {processCodeRender} from "../util/processCode";
-import {afterRenderEvent} from "./afterRenderEvent";
+import { processCodeRender } from "../util/processCode";
+import { afterRenderEvent } from "./afterRenderEvent";
 
 export const renderDomByMd = (vditor: IVditor, md: string, options = {
     enableAddUndoStack: true,

@@ -1,12 +1,12 @@
-import {Constants} from "../constants";
-import {getMarkdown} from "../markdown/getMarkdown";
-import {removeCurrentToolbar} from "../toolbar/setToolbar";
-import {accessLocalStorage} from "../util/compatibility";
-import {listToggle} from "../util/fixBrowserBehavior";
-import {hasClosestBlock, hasClosestByAttribute, hasClosestByClassName, hasClosestByMatchTag} from "../util/hasClosest";
-import {getEditorRange, getSelectPosition, setRangeByWbr, setSelectionFocus} from "../util/selection";
-import {highlightToolbarIR} from "./highlightToolbarIR";
-import {input} from "./input";
+import { Constants } from "../constants";
+import { getMarkdown } from "../markdown/getMarkdown";
+import { removeCurrentToolbar } from "../toolbar/setToolbar";
+import { accessLocalStorage } from "../util/compatibility";
+import { listToggle } from "../util/fixBrowserBehavior";
+import { hasClosestBlock, hasClosestByAttribute, hasClosestByClassName, hasClosestByMatchTag } from "../util/hasClosest";
+import { getEditorRange, getSelectPosition, setRangeByWbr, setSelectionFocus } from "../util/selection";
+import { highlightToolbarIR } from "./highlightToolbarIR";
+import { input } from "./input";
 
 export const processHint = (vditor: IVditor) => {
     vditor.hint.render(vditor);

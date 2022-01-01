@@ -297,9 +297,13 @@ class Vditor extends VditorMethod {
       }
     }
   }
-
   /** 设置编辑器内容 */
-  public setValue(markdown: string, clearStack = false) {
+  public setValue(markdown: string, clearStack = false, options?: {
+    enableAddUndoStack?: boolean,
+    enableHint?: boolean,
+    enableInput?: boolean,
+  }) {
+    options = options || {}
     if (this.vditor.currentMode === 'sv') {
       this.vditor.sv.element.innerHTML =
         this.vditor.lute.SpinVditorSVDOM(markdown)
@@ -307,12 +311,14 @@ class Vditor extends VditorMethod {
         enableAddUndoStack: true,
         enableHint: false,
         enableInput: false,
+        ...options
       })
     } else if (this.vditor.currentMode === 'wysiwyg') {
       renderDomByMd(this.vditor, markdown, {
         enableAddUndoStack: true,
         enableHint: false,
         enableInput: false,
+        ...options
       })
     } else {
       this.vditor.ir.element.innerHTML =
@@ -326,6 +332,7 @@ class Vditor extends VditorMethod {
         enableAddUndoStack: true,
         enableHint: false,
         enableInput: false,
+        ...options
       })
     }
 
@@ -342,6 +349,7 @@ class Vditor extends VditorMethod {
       this.clearStack()
     }
   }
+
 
   /** 清空 undo & redo 栈 */
   public clearStack() {

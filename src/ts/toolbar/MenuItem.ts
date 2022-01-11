@@ -1,9 +1,9 @@
-import {Constants} from "../constants";
-import {processToolbar} from "../ir/process";
-import {processToolbar as processToolbarSV} from "../sv/process";
-import {getEventName} from "../util/compatibility";
-import {updateHotkeyTip} from "../util/compatibility";
-import {toolbarEvent} from "../wysiwyg/toolbarEvent";
+import { Constants } from "../constants";
+import { processToolbar } from "../ir/process";
+import { processToolbar as processToolbarSV } from "../sv/process";
+import { getEventName } from "../util/compatibility";
+import { updateHotkeyTip } from "../util/compatibility";
+import { toolbarEvent } from "../wysiwyg/toolbarEvent";
 
 export class MenuItem {
     public element: HTMLElement;
@@ -26,6 +26,8 @@ export class MenuItem {
             this.element.classList.add("vditor-toolbar__item");
             const iconElement = document.createElement(tagName);
             iconElement.setAttribute("data-type", menuItem.name);
+            // 不让tab
+            iconElement.setAttribute('tabindex', '-1')
             iconElement.className = `vditor-tooltipped vditor-tooltipped__${menuItem.tipPosition}`;
             iconElement.setAttribute("aria-label", tip);
             iconElement.innerHTML = menuItem.icon;

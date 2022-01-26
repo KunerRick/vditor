@@ -1084,76 +1084,75 @@ const linkHotkey = (
 }
 
 export const genAPopover = (vditor: IVditor, aElement: HTMLElement) => {
-  const lang: keyof II18n | '' = vditor.options.lang
-  const options: IOptions = vditor.options
-  vditor.wysiwyg.popover.innerHTML = ''
+  vditor.wysiwyg.popover.innerHTML = "";
 
   const updateA = () => {
-    if (input.value.trim() !== '') {
-      aElement.innerHTML = input.value
+    if (input.value.trim() !== "") {
+      aElement.innerHTML = input.value;
     }
-    aElement.setAttribute('href', input1.value)
-    aElement.setAttribute('title', input2.value)
-  }
+    aElement.setAttribute("href", input1.value);
+    aElement.setAttribute("title", input2.value);
+    afterRenderEvent(vditor);
+  };
 
-  aElement.querySelectorAll('[data-marker]').forEach((item: HTMLElement) => {
-    item.removeAttribute('data-marker')
-  })
-  const inputWrap = document.createElement('span')
-  inputWrap.setAttribute('aria-label', window.VditorI18n.textIsNotEmpty)
-  inputWrap.className = 'vditor-tooltipped vditor-tooltipped__n'
-  const input = document.createElement('input')
-  inputWrap.appendChild(input)
-  input.className = 'vditor-input'
-  input.setAttribute('placeholder', window.VditorI18n.textIsNotEmpty)
-  input.style.width = '120px'
-  input.value = aElement.innerHTML || ''
+  aElement.querySelectorAll("[data-marker]").forEach((item: HTMLElement) => {
+    item.removeAttribute("data-marker");
+  });
+  const inputWrap = document.createElement("span");
+  inputWrap.setAttribute("aria-label", window.VditorI18n.textIsNotEmpty);
+  inputWrap.className = "vditor-tooltipped vditor-tooltipped__n";
+  const input = document.createElement("input");
+  inputWrap.appendChild(input);
+  input.className = "vditor-input";
+  input.setAttribute("placeholder", window.VditorI18n.textIsNotEmpty);
+  input.style.width = "120px";
+  input.value = aElement.innerHTML || "";
   input.oninput = () => {
-    updateA()
-  }
+    updateA();
+  };
   input.onkeydown = (event) => {
     if (removeBlockElement(vditor, event)) {
-      return
+      return;
     }
-    linkHotkey(vditor, aElement, event, input1)
-  }
+    linkHotkey(vditor, aElement, event, input1);
+  };
 
-  const input1Wrap = document.createElement('span')
-  input1Wrap.setAttribute('aria-label', window.VditorI18n.link)
-  input1Wrap.className = 'vditor-tooltipped vditor-tooltipped__n'
-  const input1 = document.createElement('input')
-  input1Wrap.appendChild(input1)
-  input1.className = 'vditor-input'
-  input1.setAttribute('placeholder', window.VditorI18n.link)
-  input1.value = aElement.getAttribute('href') || ''
+  const input1Wrap = document.createElement("span");
+  input1Wrap.setAttribute("aria-label", window.VditorI18n.link);
+  input1Wrap.className = "vditor-tooltipped vditor-tooltipped__n";
+  const input1 = document.createElement("input");
+  input1Wrap.appendChild(input1);
+  input1.className = "vditor-input";
+  input1.setAttribute("placeholder", window.VditorI18n.link);
+  input1.value = aElement.getAttribute("href") || "";
   input1.oninput = () => {
-    updateA()
-  }
+    updateA();
+  };
   input1.onkeydown = (event) => {
     if (removeBlockElement(vditor, event)) {
-      return
+      return;
     }
-    linkHotkey(vditor, aElement, event, input2)
-  }
+    linkHotkey(vditor, aElement, event, input2);
+  };
 
-  const input2Wrap = document.createElement('span')
-  input2Wrap.setAttribute('aria-label', window.VditorI18n.tooltipText)
-  input2Wrap.className = 'vditor-tooltipped vditor-tooltipped__n'
-  const input2 = document.createElement('input')
-  input2Wrap.appendChild(input2)
-  input2.className = 'vditor-input'
-  input2.setAttribute('placeholder', window.VditorI18n.tooltipText)
-  input2.style.width = '60px'
-  input2.value = aElement.getAttribute('title') || ''
+  const input2Wrap = document.createElement("span");
+  input2Wrap.setAttribute("aria-label", window.VditorI18n.tooltipText);
+  input2Wrap.className = "vditor-tooltipped vditor-tooltipped__n";
+  const input2 = document.createElement("input");
+  input2Wrap.appendChild(input2);
+  input2.className = "vditor-input";
+  input2.setAttribute("placeholder", window.VditorI18n.tooltipText);
+  input2.style.width = "60px";
+  input2.value = aElement.getAttribute("title") || "";
   input2.oninput = () => {
-    updateA()
-  }
+    updateA();
+  };
   input2.onkeydown = (event) => {
     if (removeBlockElement(vditor, event)) {
-      return
+      return;
     }
-    linkHotkey(vditor, aElement, event, input)
-  }
+    linkHotkey(vditor, aElement, event, input);
+  };
 
   genClose(aElement, vditor)
   vditor.wysiwyg.popover.insertAdjacentElement('beforeend', inputWrap)

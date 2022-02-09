@@ -973,6 +973,8 @@ export const genLinkRefPopover = (
 }
 
 const genUp = (range: Range, element: HTMLElement, vditor: IVditor) => {
+  // 暂不展示
+  return
   const previousElement = element.previousElementSibling
   if (
     !previousElement ||
@@ -1002,6 +1004,8 @@ const genUp = (range: Range, element: HTMLElement, vditor: IVditor) => {
 }
 
 const genDown = (range: Range, element: HTMLElement, vditor: IVditor) => {
+  // 暂不展示
+  return
   const nextElement = element.nextElementSibling
   if (
     !nextElement ||
@@ -1032,6 +1036,8 @@ const genDown = (range: Range, element: HTMLElement, vditor: IVditor) => {
 }
 
 const genClose = (element: HTMLElement, vditor: IVditor) => {
+  // 暂不展示
+  return
   const close = document.createElement('button')
   close.setAttribute('type', 'button')
   close.setAttribute('data-type', 'remove')

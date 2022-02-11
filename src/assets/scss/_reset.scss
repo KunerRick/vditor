@@ -11,7 +11,7 @@
       line-height: 16px;
     }
 
-    color: #24292e;
+    color: var(--textarea-text-color);
     font-variant-ligatures: no-common-ligatures;
     font-family: $font-family-base;
     word-wrap: break-word;
